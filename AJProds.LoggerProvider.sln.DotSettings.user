@@ -2,11 +2,13 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\bandi\.nuget\packages\microsoft.extensions.logging\6.0.0\lib\netstandard2.1\Microsoft.Extensions.Logging.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\bandi\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.3\lib\net6.0\Microsoft.Extensions.Logging.Abstractions.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\6.0.6\Microsoft.AspNetCore.Http.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\bandi\AppData\Local\JetBrains\Rider2022.3\resharper-host\temp\Rider\vAny\CoverageData\_AJProds.LoggerProvider.-858081272\Snapshot\snapshot.utdcvr</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3dccef5a_002D1c1b_002D4d9c_002D931d_002D94a2dbd1e173/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SimpleLogging_OK" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::6ECB3BBC-D4F3-485C-A3F8-2338B8083E24::net6.0::AJProds.LoggerProvider.Test.ExtendedMessageEntryTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::6ECB3BBC-D4F3-485C-A3F8-2338B8083E24::net6.0::AJProds.LoggerProvider.Test.LoggingTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::857E0897-9A38-4B3C-8032-885C30F3A515::net6.0::AJProds.MessageLoggerProvider.HttpContext.Test.MessageAccessorTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

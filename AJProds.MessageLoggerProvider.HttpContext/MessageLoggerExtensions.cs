@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 
@@ -16,9 +17,25 @@ public static class Extensions
     /// </remarks>
     public static ILoggingBuilder AddMessageLoggerProvider(this ILoggingBuilder builder)
     {
+        builder.Services.AddHttpContextAccessor();
+        
+        builder.AddMessageLoggerProviderCommon();
         builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<IMessagesAccessor, MessagesAccessor>());
-        builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ILoggerProvider, MessageLoggerProvider>());
 
         return builder;
+    }
+    
+    /// <summary>
+    /// Configures the <see cref="BaseMessagesHolder"/> per request.
+    /// </summary>
+    public static IApplicationBuilder UseMessageLoggerProvider(this IApplicationBuilder app)
+    {
+        return app.Use((context, next) =>
+             {
+                 var accessor = context.RequestServices.GetRequiredService<IMessagesAccessor>();
+                 accessor.Init();
+
+                 return next();
+             });
     }
 }

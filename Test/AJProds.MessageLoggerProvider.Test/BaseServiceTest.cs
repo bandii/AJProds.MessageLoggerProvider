@@ -8,13 +8,16 @@ namespace AJProds.LoggerProvider.Test;
 [TestFixture]
 public abstract class BaseServiceTest
 {
+#pragma warning disable CS8618
     private IServiceCollection _serviceCollection;
+#pragma warning restore CS8618
 
     /// <summary>
     /// Register and modify your services here
     /// </summary>
     protected IServiceCollection SharedServiceCollection
     {
+        // ReSharper disable once NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract
         get => _serviceCollection ??= new ServiceCollection();
         private set => _serviceCollection = value;
     }
@@ -34,6 +37,8 @@ public abstract class BaseServiceTest
     [TearDown]
     public virtual void TearDown()
     {
+#pragma warning disable CS8625
         SharedServiceCollection = null;
+#pragma warning restore CS8625
     }
 }

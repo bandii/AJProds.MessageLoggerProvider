@@ -5,6 +5,9 @@ using JetBrains.dotMemoryUnit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+#pragma warning disable CS8602
+#pragma warning disable CS8604
+
 [assembly: DotMemoryUnit(FailIfRunWithoutSupport = false)]
 
 namespace AJProds.LoggerProvider.Test;

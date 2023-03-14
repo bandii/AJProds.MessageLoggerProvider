@@ -13,14 +13,12 @@ should not be logged via this Logging Provider.
 * MessageLoggerProvider.Core -> holds the common implementations
 * MessageLoggerProvider.HttpContext -> works via the ```IHttpContextAccessor```
 
-# References, ideas from:
+# References, ideas from
 * https://learn.microsoft.com/en-us/dotnet/core/extensions/custom-logging-provider
 * https://github.com/dotnet/runtime/tree/35f87ecf04416831c5675617b2bda4e2a031592f/src/libraries/Microsoft.Extensions.Logging.Console
+* https://learn.microsoft.com/en-us/dotnet/api/system.threading.asynclocal-1
 
 # TODO
-- [ ] Asp HttpContext leg -> individual nuget
-    - [ ] Review the readme!
-    - [ ] Plus MiddleWare for the initialization..
-    - [ ] Should it have an Abstract package, then a simple (without suffix), and an ASP package?
-    - [ ] Implement it with ProblemDetails - https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.validationproblemdetails?source=recommendations&view=aspnetcore-7.0
+- [ ] Add a middleware to convert the MessageEntry objects to ProblemDetails 
+-> e.g.: https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.validationproblemdetails?source=recommendations&view=aspnetcore-7.0
 - [ ] Publish nuget packages
