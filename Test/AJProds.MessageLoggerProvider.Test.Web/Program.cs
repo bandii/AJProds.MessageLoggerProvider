@@ -35,7 +35,9 @@ app.Use(async (context, next) =>
             Console.WriteLine("Request is at " + context.Request.Path);
 
             // Checking the logs stored so far
+#pragma warning disable CS8602
             foreach (var logEntry in accessor.Messages)
+#pragma warning restore CS8602
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine(logEntry.ToString());

@@ -28,7 +28,9 @@ logger.LogError( "This line should get hit");
 logger.LogError(1234, "This line should also get hit, note the event id in the log message!");
 
 // Checking the logs stored so far
+#pragma warning disable CS8602
 foreach (var logEntry in logMessagesAccessor.Messages)
+#pragma warning restore CS8602
 {
     Console.ForegroundColor = ConsoleColor.DarkGreen;
     Console.WriteLine(logEntry.ToString());
