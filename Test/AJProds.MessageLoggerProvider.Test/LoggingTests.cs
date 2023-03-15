@@ -65,7 +65,8 @@ class LoggingTests : BaseServiceTest
         // Then
         Assert.NotNull(logMessagesAccessor.Messages);
         Assert.That(logMessagesAccessor.Messages.Single().Title, Is.EqualTo(nameof(SimpleLogging_ViaLogger_OK)));
-        Assert.That(logMessagesAccessor.Messages.Single().ToString(), Is.EqualTo("Information - SimpleLogging_ViaLogger_OK [1234]\r\n"));
+        Assert.That(logMessagesAccessor.Messages.Single().ToString(),
+                    Is.EqualTo("Information - SimpleLogging_ViaLogger_OK [1234]" + Environment.NewLine + ""));
     }
 
     [Test]
@@ -86,7 +87,7 @@ class LoggingTests : BaseServiceTest
         // Then
         Assert.NotNull(logMessagesAccessor.Messages);
         Assert.That(logMessagesAccessor.Messages.Single().Title, Is.EqualTo("Test message"));
-        Assert.That(logMessagesAccessor.Messages.Single().ToString(), Is.EqualTo("Information - Test message [1234]\r\n"));
+        Assert.That(logMessagesAccessor.Messages.Single().ToString(), Is.EqualTo("Information - Test message [1234]" + Environment.NewLine + ""));
     }
 
     [Test]

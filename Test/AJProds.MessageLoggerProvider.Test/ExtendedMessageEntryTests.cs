@@ -33,11 +33,12 @@ class ExtendedMessageEntryTests : BaseServiceTest
         // Then
         Assert.NotNull(logMessagesAccessor.Messages);
         Assert.That(logMessagesAccessor.Messages.Single().Title, Is.EqualTo(nameof(ExtendedMessageLogging_ViaAccessor_OK)));
-        Assert.That(logMessagesAccessor.Messages.Single().ToString(), Is.EqualTo("Information - ExtendedMessageLogging_ViaAccessor_OK\r\nMy.UI.Page.Button"));
+        Assert.That(logMessagesAccessor.Messages.Single().ToString(),
+                    Is.EqualTo("Information - ExtendedMessageLogging_ViaAccessor_OK" + Environment.NewLine + "My.UI.Page.Button"));
     }
 }
 
-record MyCustomEntry: MessageEntry
+record MyCustomEntry : MessageEntry
 {
     /// <summary>
     /// A sample for extending the MessageEntry type.
