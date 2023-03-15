@@ -1,0 +1,60 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: CD
+
+on:
+  release:
+    types: [ published, edited ]
+
+jobs:
+  publish-console:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./AJProds.MessageLoggerProvider/AJProds.MessageLoggerProvider
+    steps:
+      - uses: actions/checkout@v3.3.0
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1.9.0
+        with:
+          dotnet-version: '6.0'
+
+      - name: Create NuGet Package
+        run: dotnet pack -c Release /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="See https://github.com/bandii/AJProds.MessageLoggerProvider/releases/tag/${{ github.event.release.tag_name }}"
+
+      - name: Archive NuGet Package
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: AJProds.MessageLoggerProvider
+          path: ./**/*.nupkg
+
+      - name: Publish Nuget Package
+        run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+  
+  publish-web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./AJProds.MessageLoggerProvider.HttpContext/AJProds.MessageLoggerProvider.HttpContext
+    steps:
+      - uses: actions/checkout@v3.3.0
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1.9.0
+        with:
+          dotnet-version: '6.0'
+
+      - name: Create NuGet Package
+        run: dotnet pack -c Release /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="See https://github.com/bandii/AJProds.MessageLoggerProvider/releases/tag/${{ github.event.release.tag_name }}"
+
+      - name: Archive NuGet Package
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: AJProds.MessageLoggerProvider.Web
+          path: ./**/*.nupkg
+
+      - name: Publish Nuget Package
+        run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+
