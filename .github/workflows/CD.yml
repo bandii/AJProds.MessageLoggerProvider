@@ -8,6 +8,31 @@ on:
     types: [ published, edited ]
 
 jobs:
+  publish-core:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: AJProds.MessageLoggerProvider.Core
+    steps:
+      - uses: actions/checkout@v3.3.0
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1.9.0
+        with:
+          dotnet-version: '6.0'
+
+      - name: Create NuGet Package
+        run: dotnet pack -c Release /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="See https://github.com/bandii/AJProds.MessageLoggerProvider/releases/tag/${{ github.event.release.tag_name }}"
+
+      - name: Archive NuGet Package
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: AJProds.MessageLoggerProvider.Core
+          path: ./**/*.nupkg
+
+      - name: Publish Nuget Package
+        run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        
   publish-console:
     runs-on: ubuntu-latest
     defaults:

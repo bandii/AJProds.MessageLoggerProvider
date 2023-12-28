@@ -5,7 +5,21 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>AJProds.MessageLoggerProvider</RootNamespace>
+
+        <Title>AJProds.MessageLoggerProvider.Core</Title>
+        <Description>Abstractions and common implementation about gathering and processing messages logged via ILogger</Description>
+        <PackageLicense>MIT</PackageLicense>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/bandii/AJProds.MessageLoggerProvider</RepositoryUrl>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <PackageTags>Log;ILogger;Message;Process;ASP;.NET;.NET Core;dotnet</PackageTags>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include=".\readme.md" Link="readme.md" Pack="true" PackagePath="readme.md" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
