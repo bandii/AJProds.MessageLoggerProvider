@@ -21,10 +21,10 @@ logMessagesAccessor.Init();
 // Setting some sample logs, note the AppSettings.json's Logging configuration.
 var logger = host.Services.GetRequiredService<ILogger<Program>>();
 
-logger.LogInformation("This line should not get hit, as the default minimum Loglevel is None");
-logger.LogWarning("This line should neither get hit, as the minimum Loglevel for this project is Error");
+logger.LogTrace("This line should not get hit, as the default minimum Loglevel is Information");
+logger.LogDebug("This line should neither get hit, as the minimum Loglevel for this project is Error");
 
-logger.LogError( "This line should get hit");
+logger.LogWarning( "This line should get hit");
 logger.LogError(1234, "This line should also get hit, note the event id in the log message!");
 
 // Checking the logs stored so far

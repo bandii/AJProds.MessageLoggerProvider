@@ -9,13 +9,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\AJProds.MessageLoggerProvider\AJProds.MessageLoggerProvider.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <PackageReference Include="AJProds.MessageLoggerProvider" Version="*" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
     </ItemGroup>
+
+    <!--    For debugging purposes only!-->
+    <!--    <ItemGroup>-->
+    <!--        <ProjectReference Include="..\..\AJProds.MessageLoggerProvider\AJProds.MessageLoggerProvider.csproj" />-->
+    <!--    </ItemGroup>-->
 
 </Project>

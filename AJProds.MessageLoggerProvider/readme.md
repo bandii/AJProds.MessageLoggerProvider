@@ -21,8 +21,8 @@ should not be logged via this Logging Provider.
       "Logging": {
         "MessageLoggerProvider": {
             "LogLevel": {
-              "Default": "None",
-              "My.Awesome.BusinessCore.Project": "Information"
+              "Default": "Information",
+              "My.Awesome.BusinessCore.Project": "Warning"
             }
           }
         }
